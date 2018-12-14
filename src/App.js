@@ -5,14 +5,11 @@ import React, {
 import './App.css';
 import Form from './Form'
 
-
 class App extends Component {
     render() {
-        return ( 
-          
+        return (
           <div className = "App">
              <Form />
-          
           </div>
         )
     }

@@ -49,7 +49,6 @@ class Form extends React.Component {
       }
   }
 
-
   render() {
     return (
       <div className="App">
@@ -64,6 +63,5 @@ class Form extends React.Component {
     );
   }
 }
-
 
 export default Form
