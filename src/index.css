@@ -11,7 +11,7 @@ code {
 }
 
 .textarea {
-  
+
     border: 2px solid pink;
     border-radius: 5px;
     color: purple;
@@ -26,7 +26,7 @@ code {
 
 }
 
-.btn{
+button{
 
   background: #a6f7ff;
     border: 0 none;
@@ -36,7 +36,7 @@ code {
     height: 50px;
     margin-bottom: 20px;
     padding: 7px 15px;
-    width: 550px;
+    width: 570px;
 
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }

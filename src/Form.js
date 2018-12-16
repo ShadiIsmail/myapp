@@ -1,25 +1,20 @@
 import React from 'react'
 
 class Form extends React.Component {
-  constructor (props) {
+  constructor(props) {
       super(props);
       this.state = {
-          inputvalue: ''
+          inputvalue: '',
+          hasError:false
       }
 
       this.handleChange = this.handleChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange (event) {
+  handleChange(event) {
       this.setState({
           inputvalue: event.target.value
       })
-  }
-
-  handleSubmit (event) {
-      console.log('Form value: ' + this.state.inputvalue);
-      event.preventDefault();
       let isParenthesisMatching = (str) => {
           let stack = [];
 
@@ -47,6 +42,11 @@ class Form extends React.Component {
           }
           return stack.length === 0;
       }
+      this.setState({
+        hasError: !isParenthesisMatching(event.target.value)
+      }, () => {
+        console.log(this.state)
+      })
   }
 
   render() {
@@ -54,10 +54,14 @@ class Form extends React.Component {
       <div className="App">
 
           <form onSubmit={this.handleSubmit}>
-              <textarea className="textarea" placeholder="Your Code Goes Here Bro!" value={this.state.inputvalue} onChange={this.handleChange}/> <br/>
-              <button className="btn btn-default"
-       onClick={this.props.handleClick}>{this.props.label} Click Me If you Dare!</button>
+              <textarea className="textarea" placeholder="Your Code Goes Here!" value={this.state.inputvalue} onChange={this.handleChange}/>
+              <br/>
+        <button
+              onClick={this.props.handleChange}>{this.props.label}
+              <span>{this.state.hasError ? 'Bro Check Your Code!' : "You Are Awesome! "}</span>
+       </button>
           </form>
+
       </div>
 
     );
